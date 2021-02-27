@@ -1,5 +1,5 @@
-**/test_output
-**/target
-*.classpath
-**/*project
-**/*settings
+**test_output
+**target
+**.classpath
+**project
+**settings
