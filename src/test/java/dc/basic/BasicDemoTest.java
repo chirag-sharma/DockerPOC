@@ -23,7 +23,7 @@ public class BasicDemoTest {
 		dc.setPlatform(Platform.LINUX);
 		dc.setVersion("");
 		
-		driver= new RemoteWebDriver(new URL("http://192.168.0.104:4444/wd/hub"),dc);
+		driver= new RemoteWebDriver(new URL("url/wd/hub"),dc);
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 	}
