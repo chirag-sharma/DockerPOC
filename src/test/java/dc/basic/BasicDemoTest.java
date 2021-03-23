@@ -27,6 +27,7 @@ public class BasicDemoTest {
 		dc.setVersion("");
 		
 		driver= new RemoteWebDriver(new URL("http://192.168.0.104:4444/wd/hub"),dc); //amazon.ec2.aws:4444
+
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 	}
