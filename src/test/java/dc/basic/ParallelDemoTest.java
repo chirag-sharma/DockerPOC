@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterClass;
@@ -28,23 +29,25 @@ public class ParallelDemoTest {
 	public void setUp(String browser) throws MalformedURLException {
 		if(browser.equalsIgnoreCase("chrome")) {
 			WebDriverManager.chromedriver().setup();
-			//driver = new ChromeDriver();
-			DesiredCapabilities dc = DesiredCapabilities.chrome();
+			driver = new ChromeDriver();
+			System.out.println("Running the Chrome Sample in Local PC");
+			/*DesiredCapabilities dc = DesiredCapabilities.chrome();
 			dc.setPlatform(Platform.ANY);
 			dc.setVersion("");
 			System.out.println("Running the sample file in Docker <<Selenium standalone Chrome>> container");
-			driver= new RemoteWebDriver(new URL("http://192.168.0.104:4446/wd/hub"),dc);
+			driver= new RemoteWebDriver(new URL("http://192.168.0.104:4444/wd/hub"),dc);*/
 			driver.manage().window().maximize();
 			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		}
 		else if(browser.equalsIgnoreCase("firefox")) {
 			WebDriverManager.firefoxdriver().setup();
-			//driver = new ChromeDriver();
-			DesiredCapabilities dc = DesiredCapabilities.firefox();
+			driver = new FirefoxDriver();
+			System.out.println("Running the Chrome Sample in Local PC");
+			/*DesiredCapabilities dc = DesiredCapabilities.firefox();
 			dc.setPlatform(Platform.ANY);
 			dc.setVersion("");
 			System.out.println("Running the sample file in Docker <<Selenium standalone firefox>> container");
-			driver= new RemoteWebDriver(new URL("http://192.168.0.104:4445/wd/hub"),dc);
+			driver= new RemoteWebDriver(new URL("http://192.168.0.104:4445/wd/hub"),dc);*/
 			driver.manage().window().maximize();
 			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		}
@@ -56,7 +59,7 @@ public class ParallelDemoTest {
 	@Test
 	public void demoTest() throws InterruptedException {
 		
-		System.out.println("Demo Test");
+		System.out.println("Demo Test 1 ");
 		driver.get("https://www.youtube.com/");
 		Thread.sleep(3000);
 		String expTitle = driver.getTitle();
@@ -69,7 +72,7 @@ public class ParallelDemoTest {
 	
 	@Test
 	public void demoTestInsta() throws InterruptedException {
-		System.out.println("Demo Test");
+		System.out.println("Demo Test 2 ");
 		driver.get("https://www.instagram.com/");
 		Thread.sleep(3000);
 		String expTitle = driver.getTitle();

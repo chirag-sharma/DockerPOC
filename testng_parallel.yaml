@@ -1,0 +1,16 @@
+name: Suite
+parallel: tests
+configFailurePolicy: skip
+tests:
+  - name: Chrome Test
+  parallel: tests
+  parameters: { browser: chrome }
+  classes:
+    - dc.basic.ParallelDemoTest
+
+  - name: Firefox Test
+  parallel: tests
+  parameters: { browser: firefox }
+  classes:
+    - dc.basic.ParallelDemoTest
+
